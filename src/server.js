@@ -4,7 +4,7 @@ import helmet from 'helmet'
 import logger from 'morgan'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import { router } from './routes/router.js'
+// import { router } from './routes/router.js'
 
 try {
   const app = express()
@@ -36,7 +36,7 @@ try {
     next()
   })
 
-  app.use('/', router)
+  // app.use('/', router)
 
   app.use(function (err, req, res, next) {
     // Sends a Not found page.
