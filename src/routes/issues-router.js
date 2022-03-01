@@ -7,5 +7,4 @@ export const router = express.Router()
 
 // router.get('/', (req, res, next) => controller.index(req, res, next))
 // router.get('/:id/close', (req, res, next) => controller.close(req, res, next))
-// router.get('/:id/update', (req, res, next) => controller.update(req, res, next))
 // router.get('/:id/edit', (req, res, next) => controller.edit(req, res, next))

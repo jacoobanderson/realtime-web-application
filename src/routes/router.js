@@ -1,10 +1,10 @@
 import express from 'express'
-import { router as issueRouter } from './issue-router.js'
+import { router as issuesRouter } from './issues-router.js'
 import { router as webhookRouter } from './webhook-router.js'
 
 export const router = express.Router()
 
-router.use('/', issueRouter)
+router.use('/', issuesRouter)
 router.use('/webhooks', webhookRouter)
 
 router.use('*', (req, res, next) => {
