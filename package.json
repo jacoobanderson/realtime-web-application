@@ -1,0 +1,15 @@
+{
+  "name": "assignment-b2-realtime-web-application",
+  "version": "1.0.0",
+  "description": "In this assignment, you will be writing a web application that includes realtime web technologies such as WebSocket and webhook. You must put the application into production on a public server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv026/student/ja224iy/assignment-b2-realtime-web-application.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
