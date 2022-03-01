@@ -6,8 +6,22 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 // import { router } from './routes/router.js'
 
+import { createServer } from 'node:http'
+import { Server } from 'socket.io'
+
 try {
   const app = express()
+
+  const httpServer = createServer(app)
+  const io = new Server(httpServer)
+
+  io.on('connection', (socket) => {
+    console.log('socket.io: a user connected')
+
+    socket.on('disconnect', () => {
+      console.log('socket.io: a user disconnected')
+    })
+  })
 
   const directoryFullName = dirname(fileURLToPath(import.meta.url))
 
@@ -24,6 +38,8 @@ try {
 
   app.use(express.urlencoded({ extended: false }))
 
+  app.use(express.json())
+
   app.use(express.static(join(directoryFullName, '..', 'public')))
 
   if (app.get('env') === 'production') {
@@ -33,12 +49,19 @@ try {
   // Middleware
   app.use((req, res, next) => {
     res.locals.baseURL = baseURL
+
+    res.io = io
     next()
   })
 
   // app.use('/', router)
 
   app.use(function (err, req, res, next) {
+    if (req.originalUrl.includes('/webhooks')) {
+      return res
+        .status(err.status || 500)
+        .end(err.message)
+    }
     // Sends a Not found page.
     if (err.status === 404) {
       return res
@@ -59,7 +82,7 @@ try {
       .render('errors/error', { error: err })
   })
 
-  app.listen(process.env.PORT, () => {
+  httpServer.listen(process.env.PORT, () => {
     console.log(`Server running at http://localhost:${process.env.PORT}`)
   })
 } catch (error) {
