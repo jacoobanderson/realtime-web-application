@@ -9,14 +9,23 @@ if (issueTemplate) {
         appendIssue(issue)
     })
     socket.on('close', (issue) => {
-        document.getElementById(issue.id).remove()
+        const issueDiv = document.getElementById(issue.id)
+        if (issueDiv) {
+            issueDiv.remove()
+        }
     })
     socket.on('reopen', (issue) => {
-        appendIssue(issue)
+        const issueDiv = document.getElementById(issue.id)
+        if (!issueDiv) {
+            appendIssue(issue)
+        }
     })
     socket.on('update', (issue) => {
-        
-        
+        const issueDiv = document.getElementById(issue.id)
+        if (issueDiv) {
+            issueDiv.remove()
+        }
+        appendIssue(issue)
     })
 }
 
