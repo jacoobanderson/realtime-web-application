@@ -5,27 +5,29 @@ const issueTemplate = document.querySelector('#issue-template')
 if (issueTemplate) {
     const socket = window.io()
     
-    socket.on('open', (issue) => {
+    socket.on('openIssue', (issue) => {
         appendIssue(issue)
     })
-    socket.on('close', (issue) => {
+    socket.on('closeIssue', (issue) => {
         const issueDiv = document.getElementById(issue.id)
         if (issueDiv) {
             issueDiv.remove()
         }
     })
-    socket.on('reopen', (issue) => {
+    socket.on('reopenIssue', (issue) => {
+        console.log('fires reopen')
         const issueDiv = document.getElementById(issue.id)
         if (!issueDiv) {
             appendIssue(issue)
         }
     })
-    socket.on('update', (issue) => {
+    socket.on('updateIssue', (issue) => {
+        console.log('fires')
         const issueDiv = document.getElementById(issue.id)
         if (issueDiv) {
             issueDiv.remove()
+            appendIssue(issue)
         }
-        appendIssue(issue)
     })
 }
 
