@@ -28,6 +28,15 @@ try {
   const baseURL = process.env.BASE_URL || '/'
 
   app.use(helmet())
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'img-src': ["'self'", 'secure.gravatar.com', 'gitlab.lnu.se']
+      }
+    })
+  )
+
   app.use(logger('dev'))
 
   // View engine set up.

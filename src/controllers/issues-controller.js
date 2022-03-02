@@ -14,6 +14,7 @@ export class IssuesController {
                 issues: jsonIssues.map(issue => ({
                     id: issue.id,
                     title: issue.title,
+                    avatar: issue.author.avatar_url,
                     description: issue.description
                 }))
             }
