@@ -6,5 +6,6 @@ export const router = express.Router()
 const webhooksController = new WebhooksController()
 
 router.post('/',
-  (req, res, next) => webhooksController.authenticate(req, res, next)
+  (req, res, next) => webhooksController.authenticate(req, res, next),
+  (req, res, next) => webhooksController.hookData(req, res, next)
 )
