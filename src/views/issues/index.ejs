@@ -5,7 +5,10 @@
         <div class="issueContainer">
             <div class="issue">
                 <img crossorigin="anonymous" src="<%= issue.avatar %>" alt="avatar" class="avatar">
-                <h3><%= issue.title %></h3>
+                <div class="issueContent">
+                    <h3><%= issue.title %></h3>
+                    <p><%= issue.description %></p>
+                </div>
                 <form class="closeButtonForm" method="post" action="./<%= issue.iid %>/close">
                     <input type="hidden" name="iid" value="<%= issue.iid %>" />
                     <button type="submit" class="closeButton">Close issue</button>
