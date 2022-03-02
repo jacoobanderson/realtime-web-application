@@ -33,7 +33,6 @@ export class IssuesController {
                     authorization: `bearer ${process.env.PERSONAL_ACCESS_TOKEN}`
                 }
             })
-            console.log(res.statusCode)
             res.redirect('..')
         } catch (error) {
             next(error)
