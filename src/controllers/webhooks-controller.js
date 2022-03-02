@@ -19,15 +19,15 @@ export class WebhooksController {
                 description: req.body.object_attributes.description
             }
 
-        res.status(200).end()
+            res.status(200).end()
 
-        if (req.body.action === 'open') {
+        if (req.body.object_attributes.action === 'open') {
             res.io.emit('open', data)
-        } else if (req.body.action === 'close') {
+        } else if (req.body.object_attributes.action === 'close') {
             res.io.emit('close', data)
-        } else if (req.body.action === 'reopen') {
+        } else if (req.body.object_attributes.action === 'reopen') {
             res.io.emit('reopen', data)
-        } else if (req.body.action === 'update') {
+        } else if (req.body.object_attributes.action === 'update') {
             res.io.emit('update', data)
         }
 

@@ -22,17 +22,15 @@
     <% } %>
 
     <template id="issue-template">
-        <div class="issueContainer">
             <div class="issue">
-                <img crossorigin="anonymous" src="<%= issue.avatar %>" alt="avatar" class="avatar">
+                <img crossorigin="anonymous" alt="avatar" class="avatar">
                 <div class="issueContent">
-                    <h3><%= issue.title %></h3>
-                    <p><%= issue.description %></p>
+                    <h3></h3>
+                    <p></p>
                 </div>
-                <form class="closeButtonForm" method="post" action="./<%= issue.iid %>/close">
-                    <input type="hidden" name="iid" value="<%= issue.iid %>" />
+                <form class="closeButtonForm" method="post">
+                    <input type="hidden" name="iid"/>
                     <button type="submit" class="closeButton">Close issue</button>
                 </form>
             </div>
-        </div>
     </template>
