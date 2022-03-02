@@ -3,7 +3,7 @@
 <% if (viewData.issues.length) { %>
     <% for (const issue of viewData.issues) { %>
         <div class="issueContainer">
-            <div class="issue">
+            <div class="issue" id="<%= issue.id %>">
                 <img crossorigin="anonymous" src="<%= issue.avatar %>" alt="avatar" class="avatar">
                 <div class="issueContent">
                     <h3><%= issue.title %></h3>
