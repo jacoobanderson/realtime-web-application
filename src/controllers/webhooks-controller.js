@@ -1,11 +1,13 @@
 /**
- *
+ * Encapsulates the webhooks controller.
  */
 export class WebhooksController {
   /**
-   * @param req
-   * @param res
-   * @param next
+   * Authenticates the webhook.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
    */
   authenticate (req, res, next) {
     if (req.headers['x-gitlab-token'] !== process.env.WEBHOOK_SECRET) {
@@ -18,9 +20,11 @@ export class WebhooksController {
   }
 
   /**
-   * @param req
-   * @param res
-   * @param next
+   * Emits socket io events with issue data.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
    */
   hookData (req, res, next) {
     try {

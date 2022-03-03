@@ -1,13 +1,15 @@
 import fetch from 'node-fetch'
 
 /**
- *
+ * Encapsulates the issue controller.
  */
 export class IssuesController {
   /**
-   * @param req
-   * @param res
-   * @param next
+   * Renders the index.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
    */
   async getIndex (req, res, next) {
     try {
@@ -34,9 +36,11 @@ export class IssuesController {
   }
 
   /**
-   * @param req
-   * @param res
-   * @param next
+   * Closes an issue.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
    */
   async closeIssue (req, res, next) {
     try {
@@ -53,9 +57,11 @@ export class IssuesController {
   }
 
   /**
-   * @param req
-   * @param res
-   * @param next
+   * Renders all the closed issues.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
    */
   async getClosedIssues (req, res, next) {
     try {
@@ -82,9 +88,11 @@ export class IssuesController {
   }
 
   /**
-   * @param req
-   * @param res
-   * @param next
+   * Reopens the issue.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
    */
   async reOpenIssue (req, res, next) {
     try {

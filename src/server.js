@@ -16,10 +16,10 @@ try {
   const io = new Server(httpServer)
 
   io.on('connection', (socket) => {
-    console.log('socket.io: a user connected')
+    console.log('socket.io: Connected')
 
     socket.on('disconnect', () => {
-      console.log('socket.io: a user disconnected')
+      console.log('socket.io: Disconnected')
     })
   })
 
