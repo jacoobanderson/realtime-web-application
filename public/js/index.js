@@ -1,9 +1,13 @@
-import '../socket.io/socket.io.js'
 
 const issueTemplate = document.querySelector('#issue-template')
 
 if (issueTemplate) {
-  const socket = window.io()
+  await import('../socket.io/socket.io.js')
+  const base = document.querySelector('base')
+  const path = base
+    ? (new URL('socket.io', base.href)).pathname
+    : '/socket.io'
+  const socket = window.io.connect('/', { path })
 
   socket.on('openIssue', (issue) => {
     appendIssue(issue)
