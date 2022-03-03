@@ -26,8 +26,6 @@ footer {
     grid-column: 1/7;
 }
 
-.issueContainer {
-}
 .issue {
     display: flex;
     flex-direction: row;
